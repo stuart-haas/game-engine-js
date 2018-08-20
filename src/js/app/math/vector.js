@@ -7,6 +7,13 @@ class Vector{
     add(vector) {
         this.x += vector.x;
         this.y += vector.y;
+        return this;
+    }
+
+    subtract(vector) {
+        this.x -= vector.x
+        this.y -= vector.y;
+        return this;
     }
 
     multiply(value) {
@@ -16,13 +23,31 @@ class Vector{
     divide(value) {
         return new Vector(this.x /= value, this.y /= value);
     }
+
+    distSq(vector){
+		let dx = vector.x - this.x;
+		let dy = vector.y - this.y;
+		return dx * dx + dy * dy;
+	}
+
+    normalize() {
+		if (this.getLength() != 0){
+			this.x /= this.getLength();
+			this.y /= this.getLength();
+		}
+		return this;
+	}
     
-    getMagnitude() {
+    getLength() {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 
     getAngle() {
         return Math.atan2(this.y, this.x);
+    }
+
+    clone() {
+        return new Vector(this.x, this.y);
     }
 
     static fromAngle(angle, magnitude) {
