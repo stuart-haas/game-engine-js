@@ -6,7 +6,7 @@ import Art from '../sprite/Art';
 class Coin extends Entity {
     constructor(pos) {
         super(pos);
-        this.sprite = new SpriteSheet(Art.COIN, 32, 32);
+        this.sprite = new SpriteSheet(this, Art.COIN, 32, 32);
         this.animation = new Animation(this, this.sprite, 5, 0, 7);
     }
 

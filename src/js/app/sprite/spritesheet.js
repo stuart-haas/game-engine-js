@@ -1,5 +1,6 @@
 class SpriteSheet {
-    constructor(path, frameWidth, frameHeight) {
+    constructor(parent, path, frameWidth, frameHeight) {
+        this.parent = parent;
         this.frameWidth = frameWidth;
         this.frameHeight = frameHeight;
 
@@ -12,6 +13,13 @@ class SpriteSheet {
 
     loadImage() {
         this.framesPerRow = Math.floor(this.image.width / this.frameWidth);
+    }
+
+    render(ctx) {
+        ctx.drawImage(
+            this.image,
+            this.parent.pos.x, this.parent.pos.y,
+            this.frameWidth, this.frameHeight);
     }
 }
 

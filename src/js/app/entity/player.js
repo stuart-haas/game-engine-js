@@ -1,12 +1,15 @@
-import Shape from '../draw/shape';
 import Input from '../core/input';
 import Key from '../core/key';
 import Entity from '../entity/entity';
+import SpriteSheet from '../sprite/spritesheet';
+import Animation from '../sprite/animation';
+import Art from '../sprite/Art';
 
 class Player extends Entity {
     constructor() {
         super();
         this.input = new Input();
+        this.sprite = new SpriteSheet(this, Art.PLAYER, 32, 32);
     }
 
     update() {
@@ -19,7 +22,7 @@ class Player extends Entity {
     }
 
     render(ctx) {
-        Shape.circle(ctx, this.pos, this.size, this.color);
+        this.sprite.render(ctx);
     }
 }
 

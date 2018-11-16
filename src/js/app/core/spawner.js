@@ -11,7 +11,7 @@ class Spawner {
     }
 
     update(target) {
-        if(this.game.entities.length == 1) return;
+        if(this.game.entities.length == 10) return;
         if (Math.floor(Math.random() * this.inverseSpawnChance) == 0)
             this.game.addEntity(new Coin(this.getPos(target)));
 
